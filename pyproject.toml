@@ -1,0 +1,33 @@
+[project]
+name = "vrcdn-auto-recorder-4000"
+version = "1.0.0"
+description = "Automatically records streams from VRCDN as streamers go live"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "deepmerge>=3.0",
+    "ffmpeg-python>=0.2.0",
+    "pydantic>=2.13.4",
+    "pyrate-limiter>=4.4.0",
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+    "types-pyyaml>=6.0.12.20260815",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+
+[tool.mypy]
+mypy_path = "stubs"
+
+[tool.pyright]
+stubPath = "stubs"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.0",
+]
