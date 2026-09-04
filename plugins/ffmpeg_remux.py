@@ -1,8 +1,11 @@
 import re
+import logging
 
 from .plugin_base import Plugin
 
 import ffmpeg
+
+log = logging.getLogger(__file__)
 
 
 class FFmpegRemuxPlugin(Plugin):
@@ -17,7 +20,13 @@ class FFmpegRemuxPlugin(Plugin):
         if error is None and finish:
             mp4_filename = re.sub(r"\.ts$", ".mp4", output_path)
 
-            ffmpeg.input(output_path, fflags="+genpts").output(mp4_filename, codec="copy", movflags="faststart").run()
+            stream = ffmpeg.input(output_path, fflags="+genpts", analyzeduration="100M", probesize="100M").output(
+                mp4_filename, codec="copy", movflags="faststart"
+            )
+
+            log.info("Running: " + " ".join(stream.compile()))
+
+            stream.run()
 
 
 PluginExport = FFmpegRemuxPlugin
