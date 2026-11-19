@@ -1,5 +1,5 @@
 # VRCDN Auto Recorder 4000
-A better way to automatically record streams from [VRCDN](https://vrcdn.live) as streams go live.
+A better way to automatically record streams from [VRCDN](https://vrcdn.live) as they go live.
 
 This is a sister project of the [Twitch Auto Recorder 3000](https://github.com/jangxx/twitch-auto-recorder-3000), focused entirely on VRCDN.
 It's also designed to be nice to VRCDN's servers by reducing the number of connections as much as possible.
@@ -46,26 +46,6 @@ Afterwards you can run the script using:
 
 ```bash
 uv run main.py
-```
-
-Alternatively, activate the virtualenv first and then run the script directly.
-
-Activate the virtualenv
-
-_Linux, macOS_:
-
-    source .venv/bin/activate
-
-_Windows_:
-
-- Bash: `source .venv/Scripts/activate`
-- Powershell: `.\.venv\Scripts\Activate.ps1`
-- CMD: `.\.venv\Scripts\activate.bat`
-
-and then run:
-
-```bash
-python main.py
 ```
 
 ## Launch arguments & configuration file
